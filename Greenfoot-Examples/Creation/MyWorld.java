@@ -14,6 +14,15 @@ public class MyWorld extends World
         addObject(fishie, 100, 550);
         addObject(healthCounter, 75, 650);
         addObject(hungerCounter, 75, 680);
+        updateCounters();
+    }
+    
+    private void updateCounters(){
+        double fishHunger = fishie.getHunger();
+        hungerCounter.setValue((int)fishHunger);
+        
+        int fishHp = fishie.getHp();
+        healthCounter.setValue(fishHp);
     }
     
     public void act(){
@@ -23,11 +32,7 @@ public class MyWorld extends World
             countActs=0;
         }
         
-        double fishHunger = fishie.getHunger();
-        hungerCounter.setValue((int)fishHunger);
-        
-        int fishHp = fishie.getHp();
-        healthCounter.setValue(fishHp);
+        updateCounters();
         
     }
     
