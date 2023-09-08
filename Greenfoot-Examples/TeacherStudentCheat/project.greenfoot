@@ -1,0 +1,17 @@
+#Greenfoot properties
+#Fri Sep 01 11:07:59 CEST 2023
+class.Student.superclass=greenfoot.Actor
+mainWindow.width=850
+class.Classroom.superclass=greenfoot.World
+project.charset=UTF-8
+version=3.0.0
+class.Table.image=button-red.png
+class.Teacher.image=person.png
+class.Table.superclass=greenfoot.Actor
+world.lastInstantiated=Classroom
+class.Classroom.image=fingerprint.jpg
+mainWindow.y=40
+mainWindow.x=40
+class.Student.image=boy1.png
+mainWindow.height=600
+class.Teacher.superclass=greenfoot.Actor
