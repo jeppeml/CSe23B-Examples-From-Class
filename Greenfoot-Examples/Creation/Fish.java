@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Fish extends Actor
 {
     private double hunger = 100.0; // 100 very hungry, 0 not hungry
-    private int maxHp = 500;
+    private int maxHp = 1000;
     private int hp = maxHp/2;
     private double speed = 1;
     private double baseSpeed = 3;
@@ -39,7 +39,7 @@ public class Fish extends Actor
             
         if(heart != null){
            getWorld().removeObject(heart);
-           hp = hp + 250;
+           hp = hp + 1000;
            if(hp>=maxHp){
                maxHp*=2;
                speed*=1.5;
