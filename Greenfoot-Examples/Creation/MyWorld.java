@@ -16,7 +16,7 @@ public class MyWorld extends World
         addObject(fishie, 100, 550);
         addObject(healthCounter, 75, 650);
         addObject(hungerCounter, 75, 680);
-        addObject(levelCounter, 75, 680);
+        addObject(levelCounter, 75, 620);
         updateCounters();
     }
     
@@ -47,7 +47,7 @@ public class MyWorld extends World
         List<Hamburger> allBurgersOnScreen = getObjects(Hamburger.class);
         
         Hamburger closest = null;
-        int distance = 5000;
+        int distance = 0;
         /*
         for(int i=0;i<allBurgersOnScreen.size();i++){
             Hamburger someBurger = allBurgersOnScreen.get(i);
@@ -62,14 +62,14 @@ public class MyWorld extends World
         
         for(Hamburger someBurger : allBurgersOnScreen)
         {
-            if (someBurger.getY()<=distance){
+            if (someBurger.getY()>=distance){
                 distance = someBurger.getY();
                 closest = someBurger;
             }
             someBurger.setRotation(90);
         }
         if(closest!=null)
-            closest.setRotation(45);
+            closest.setRotation(15);
         
     }
     
