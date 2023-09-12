@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Fish extends Actor
 {
     private double hunger = 100.0; // 100 very hungry, 0 not hungry
-    private int maxHp = 1000;
+    private int maxHp = 500;
     private int hp = maxHp/2;
     private double speed = 1;
     private double baseSpeed = 3;
