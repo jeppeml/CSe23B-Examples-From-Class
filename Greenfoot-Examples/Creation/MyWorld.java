@@ -3,10 +3,11 @@ import java.util.List;
 
 public class MyWorld extends World
 {
-    private int countActs = 0;
+    private long countActs = 0;
     private Fish fishie;
     private Counter healthCounter = new Counter("Health:  ");
     private Counter hungerCounter = new Counter("Hunger:  ");
+    private Counter levelCounter = new Counter("Level:  ");
     
     public MyWorld()
     {    
@@ -15,6 +16,7 @@ public class MyWorld extends World
         addObject(fishie, 100, 550);
         addObject(healthCounter, 75, 650);
         addObject(hungerCounter, 75, 680);
+        addObject(levelCounter, 75, 680);
         updateCounters();
     }
     
@@ -28,9 +30,16 @@ public class MyWorld extends World
     
     public void act(){
         countActs++;
-        if(countActs>=30){
+        if(countActs%30==0){
             spawnBurger();
-            countActs=0;
+        }
+        
+        if(countActs%150==0){
+            spawnMushroom();
+        }
+        
+        if(countActs%450==0){
+            spawnHeart();
         }
         
         updateCounters();
@@ -56,12 +65,24 @@ public class MyWorld extends World
             if (someBurger.getY()<=distance){
                 distance = someBurger.getY();
                 closest = someBurger;
-                someBurger.setRotation(45);
             }
-            else
-                someBurger.setRotation(90);
+            someBurger.setRotation(90);
         }
+        if(closest!=null)
+            closest.setRotation(45);
         
+    }
+    
+    private void spawnMushroom(){
+        int x = Greenfoot.getRandomNumber(1200);
+        Mushroom mushroom = new Mushroom();
+        addObject(mushroom, x, 0);
+    }
+    
+    private void spawnHeart(){
+        int x = Greenfoot.getRandomNumber(1200);
+        Heart heart = new Heart();
+        addObject(heart, x, 0);
     }
     
     private void spawnBurger(){

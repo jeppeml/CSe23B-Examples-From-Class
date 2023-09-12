@@ -2,9 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Fish extends Actor
 {
-    private int speed = 3;
     private double hunger = 100.0; // 100 very hungry, 0 not hungry
-    private int hp = 500;
+    private int maxHp = 1000;
+    private int hp = maxHp/2;
+    private double speed = 1;
+    private double baseSpeed = 3;
+    
     
     public double getHunger(){
         return hunger;
@@ -25,11 +28,24 @@ public class Fish extends Actor
         checkMovementKeys();
         checkAndEatBurger();
         checkAndEatMushroom();
+        checkAndEatHeart();
         
         if(hp<=0){
             getWorld().removeObject(this);
         }
     }   
+    private void checkAndEatHeart(){
+        Actor heart = getOneIntersectingObject(Heart.class);
+            
+        if(heart != null){
+           getWorld().removeObject(heart);
+           hp = hp + 250;
+           if(hp>=maxHp){
+               maxHp*=2;
+               speed*=1.5;
+           }
+        }
+    }
     
     private void checkAndEatMushroom(){
         Actor mushroom = getOneIntersectingObject(Mushroom.class);
@@ -57,11 +73,15 @@ public class Fish extends Actor
     
     
     private void checkMovementKeys(){
+        int movement = (int)(baseSpeed*speed);
+        if(movement>10) 
+            movement = 10;
+            
         if(Greenfoot.isKeyDown("right")){
-            move(speed);
+            move(movement);
         }
         else if(Greenfoot.isKeyDown("left")){
-            move(-speed);
+            move(-movement);
         }
     }
     

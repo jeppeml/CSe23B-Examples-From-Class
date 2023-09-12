@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Sep 12 10:22:58 CEST 2023
+#Tue Sep 12 10:54:36 CEST 2023
 target4.type=ClassTarget
 dependency3.from=MyWorld
 class.Fish.image=fish1.png
@@ -10,6 +10,7 @@ readme.x=10
 class.Fish.superclass=greenfoot.Actor
 target4.name=MyWorld
 target4.typeParameters=
+class.Heart.image=herz.png
 readme.width=47
 editor.fx.0.width=0
 target1.height=50
@@ -35,6 +36,7 @@ target1.showInterface=false
 package.numTargets=4
 target1.type=ClassTarget
 target1.typeParameters=
+class.Heart.superclass=FallingActor
 target2.height=50
 target4.height=50
 target1.name=Hamburger
@@ -58,11 +60,11 @@ readme.height=58
 target2.name=Counter
 readme.name=@README
 package.numDependencies=4
-class.Mushroom.superclass=greenfoot.Actor
+class.Mushroom.superclass=FallingActor
 target3.type=ClassTarget
 target4.width=80
 dependency2.from=MyWorld
-class.Hamburger.superclass=greenfoot.Actor
+class.Hamburger.superclass=FallingActor
 dependency2.type=UsesDependency
 world.lastInstantiated=MyWorld
 mainWindow.height=854
