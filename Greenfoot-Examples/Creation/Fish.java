@@ -23,20 +23,38 @@ public class Fish extends Actor
             hp--;
         }
         checkMovementKeys();
-        Actor burger = getOneIntersectingObject(Hamburger.class);
-        
-        if(burger != null){
-            getWorld().removeObject(burger);
-            hunger = hunger - 25;
-            if(hunger<0){
-                hunger = 0;
-            }
-        }
+        checkAndEatBurger();
+        checkAndEatMushroom();
         
         if(hp<=0){
             getWorld().removeObject(this);
         }
     }   
+    
+    private void checkAndEatMushroom(){
+        Actor mushroom = getOneIntersectingObject(Mushroom.class);
+            
+        if(mushroom != null){
+           getWorld().removeObject(mushroom);
+           hp = hp - 250;
+           if(hp<0){
+               hp = 0;
+           }
+        }
+    }
+    
+    private void checkAndEatBurger(){
+        Actor burger = getOneIntersectingObject(Hamburger.class);
+            
+            if(burger != null){
+                getWorld().removeObject(burger);
+                hunger = hunger - 25;
+                if(hunger<0){
+                    hunger = 0;
+                }
+            }
+    }
+    
     
     private void checkMovementKeys(){
         if(Greenfoot.isKeyDown("right")){

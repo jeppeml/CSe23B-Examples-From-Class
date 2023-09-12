@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 public class MyWorld extends World
 {
@@ -33,6 +34,33 @@ public class MyWorld extends World
         }
         
         updateCounters();
+        
+        List<Hamburger> allBurgersOnScreen = getObjects(Hamburger.class);
+        
+        Hamburger closest = null;
+        int distance = 5000;
+        /*
+        for(int i=0;i<allBurgersOnScreen.size();i++){
+            Hamburger someBurger = allBurgersOnScreen.get(i);
+            if (someBurger.getY()<distance){
+                distance = someBurger.getY();
+                closest = someBurger;
+                someBurger.setRotation(45);
+            }
+            else
+                someBurger.setRotation(90);
+        }*/
+        
+        for(Hamburger someBurger : allBurgersOnScreen)
+        {
+            if (someBurger.getY()<=distance){
+                distance = someBurger.getY();
+                closest = someBurger;
+                someBurger.setRotation(45);
+            }
+            else
+                someBurger.setRotation(90);
+        }
         
     }
     
