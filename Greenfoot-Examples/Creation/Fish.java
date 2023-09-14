@@ -7,6 +7,11 @@ public class Fish extends Actor
     private int hp = maxHp/2;
     private double speed = 1;
     private double baseSpeed = 3;
+    private int level = 1;
+    
+    public int getLevel(){
+        return level;
+    }
     
     
     public double getHunger(){
@@ -43,6 +48,7 @@ public class Fish extends Actor
            if(hp>=maxHp){
                maxHp*=2;
                speed*=1.5;
+               level++;
            }
         }
     }
@@ -74,8 +80,8 @@ public class Fish extends Actor
     
     private void checkMovementKeys(){
         int movement = (int)(baseSpeed*speed);
-        if(movement>10) 
-            movement = 10;
+        if(movement>15) 
+            movement = 15;
             
         if(Greenfoot.isKeyDown("right")){
             move(movement);

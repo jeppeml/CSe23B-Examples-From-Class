@@ -71,6 +71,7 @@ public class MyWorld extends World
         if(closest!=null)
             closest.setRotation(15);
         
+        levelCounter.setValue(fishie.getLevel());
     }
     
     private void spawnMushroom(){
