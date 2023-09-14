@@ -18,6 +18,31 @@ public class MyWorld extends World
         addObject(hungerCounter, 75, 680);
         addObject(levelCounter, 75, 620);
         updateCounters();
+        
+        GreenfootImage background = getBackground();
+        
+        
+        background.setColor(Color.BLACK);
+        background.fill();
+        
+        
+        for(int i=0;i<2000;i++){
+            Star s = new Star();
+            GreenfootImage si = s.getImage();
+            int starSize = Greenfoot.getRandomNumber(3)+2;
+            si.scale(starSize,starSize);
+            si.setColor(Color.BLACK);
+            si.fill();
+            
+            int x = Greenfoot.getRandomNumber(1200);
+            int y = Greenfoot.getRandomNumber(700);
+            si.setColor(Color.WHITE);
+            si.fillOval(0,0,starSize,starSize);
+            addObject(s, 600,350);
+        }
+        
+        
+        
     }
     
     private void updateCounters(){

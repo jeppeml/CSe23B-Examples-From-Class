@@ -9,6 +9,7 @@ public class Fish extends Actor
     private double baseSpeed = 3;
     private int level = 1;
     
+    
     public int getLevel(){
         return level;
     }

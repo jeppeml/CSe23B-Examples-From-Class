@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Sep 12 10:54:36 CEST 2023
+#Thu Sep 14 11:53:37 CEST 2023
 target4.type=ClassTarget
 dependency3.from=MyWorld
 class.Fish.image=fish1.png
@@ -45,6 +45,7 @@ target4.x=0
 class.FallingActor.superclass=greenfoot.Actor
 target3.y=0
 target3.x=0
+class.Star.superclass=greenfoot.Actor
 target2.type=ClassTarget
 target2.y=0
 target2.x=0
@@ -71,6 +72,6 @@ mainWindow.height=854
 target2.showInterface=false
 target3.name=Fish
 class.Counter.image=Counter.png
-project.charset=UTF-8
 target3.width=80
+project.charset=UTF-8
 target4.showInterface=false
