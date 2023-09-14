@@ -26,24 +26,18 @@ public class MyWorld extends World
         
         int fishHp = fishie.getHp();
         healthCounter.setValue(fishHp);
+        
+        levelCounter.setValue(fishie.getLevel());
     }
     
     public void act(){
-        countActs++;
-        if(countActs%30==0){
-            spawnBurger();
-        }
-        
-        if(countActs%150==0){
-            spawnMushroom();
-        }
-        
-        if(countActs%450==0){
-            spawnHeart();
-        }
-        
+        spawnAllGameObjects();
         updateCounters();
+        wobbleBurgersCloseToTheEnd();
         
+    }
+    
+    private void wobbleBurgersCloseToTheEnd(){
         List<Hamburger> allBurgersOnScreen = getObjects(Hamburger.class);
         
         Hamburger closest = null;
@@ -71,7 +65,21 @@ public class MyWorld extends World
         if(closest!=null)
             closest.setRotation(15);
         
-        levelCounter.setValue(fishie.getLevel());
+    }
+    
+    private void spawnAllGameObjects(){
+        countActs++;
+        if(countActs%30==0){
+            spawnBurger();
+        }
+        
+        if(countActs%150==0){
+            spawnMushroom();
+        }
+        
+        if(countActs%450==0){
+            spawnHeart();
+        }
     }
     
     private void spawnMushroom(){
