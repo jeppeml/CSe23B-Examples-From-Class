@@ -14,6 +14,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("CalcView.fxml"));
         Parent root = loader.load();
+        primaryStage.setTitle("My cool calculator++");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
