@@ -6,6 +6,7 @@ import javafx.scene.layout.FlowPane;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.List;
 
 public class CalcController implements Initializable {
     @FXML
@@ -14,6 +15,8 @@ public class CalcController implements Initializable {
     private String[][] tictac = {{"_","_","_"},{"_","_","_"},{"_","_","_"}};
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        List list = new MyList();
+        List javaList = new ArrayList();
 
         // names[5] = "wrong";
         tictac[1][1] = "x";
@@ -28,5 +31,8 @@ public class CalcController implements Initializable {
             flow.getChildren().add(new Button(names[i]));
         }
 */
+        Concrete c = new Concrete();
+        c.saySomething();
+        c.saySomethingConcrete();
     }
 }
