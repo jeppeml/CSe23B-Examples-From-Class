@@ -1,3 +1,5 @@
+package dk.easv.dal;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -65,7 +67,7 @@ public class WombatFileHandler {
 
     public void addWombat(Wombat w){
         try {
-            Files.write(Paths.get(filename), getStringFromWombat(w).getBytes(), APPEND);
+            Files.write(Paths.get(filename), (getStringFromWombat(w)+"\n").getBytes(), APPEND);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -75,7 +77,7 @@ public class WombatFileHandler {
 
         stringWombat = stringWombat + w.getId() + ";";
         stringWombat = stringWombat + w.getName() + ";";
-        stringWombat = stringWombat + w.getWeight() + "\n";
+        stringWombat = stringWombat + w.getWeight();
 
         return stringWombat;
     }

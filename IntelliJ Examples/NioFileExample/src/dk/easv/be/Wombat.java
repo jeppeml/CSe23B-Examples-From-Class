@@ -1,3 +1,4 @@
+package dk.easv.be;
 public class Wombat {
     private int id;
     private String name;

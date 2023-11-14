@@ -1,9 +1,8 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
+package dk.easv;
 
-import static java.nio.file.StandardOpenOption.APPEND;
+import dk.easv.be.Wombat;
+import dk.easv.dal.WombatFileHandler;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
