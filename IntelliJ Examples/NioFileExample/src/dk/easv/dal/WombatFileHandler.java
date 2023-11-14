@@ -1,5 +1,7 @@
 package dk.easv.dal;
 
+import dk.easv.be.Wombat;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

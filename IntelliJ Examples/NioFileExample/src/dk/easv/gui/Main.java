@@ -1,7 +1,8 @@
-package dk.easv;
+package dk.easv.gui;
 
 import dk.easv.be.Wombat;
-import dk.easv.dal.WombatFileHandler;
+import dk.easv.bll.BLLManager;
+
 import java.io.IOException;
 
 public class Main {
@@ -13,10 +14,12 @@ public class Main {
         WombatFileHandler wf = new WombatFileHandler();
         wf.addWombat(henrik);
         wf.addWombat(henrik2);*/
-        WombatFileHandler wf = new WombatFileHandler();
+
+        BLLManager bllmgr = new BLLManager();
+
         //List<Wombat> wombats = wf.getAllWombats();
 
-        wf.updateWombat(new Wombat(666, "Henrik VERY 1st", 42));
+        bllmgr.updateWombat(new Wombat(666, "Henrik VERY 1st", 42));
 /*
         System.out.println("amount of wombats: " + wombats.size());
         for(Wombat w : wombats){
