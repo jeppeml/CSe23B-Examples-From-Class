@@ -7,19 +7,22 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        /*Wombat henrik = new Wombat(666);
+        /*
+        Wombat henrik = new Wombat(666);
         henrik.setName("Henrik 1st");
         henrik.setWeight(66);
         Wombat henrik2 = new Wombat(999,"Henrik 2nd", 89);
         WombatFileHandler wf = new WombatFileHandler();
         wf.addWombat(henrik);
-        wf.addWombat(henrik2);*/
+        wf.addWombat(henrik2);
+        */
 
         BLLManager bllmgr = new BLLManager();
 
         //List<Wombat> wombats = wf.getAllWombats();
 
         bllmgr.updateWombat(new Wombat(666, "Henrik VERY 1st", 42));
+        bllmgr.getWombat(1);
 /*
         System.out.println("amount of wombats: " + wombats.size());
         for(Wombat w : wombats){

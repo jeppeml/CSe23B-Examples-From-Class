@@ -1,5 +1,6 @@
 package dk.easv.bll;
 
+import dk.easv.JeppeException;
 import dk.easv.be.Wombat;
 import dk.easv.dal.WombatFileHandler;
 
@@ -28,7 +29,7 @@ public class BLLManager {
         return heavyWombats;
     }
 
-    public Wombat getWombat(int id){
+    public Wombat getWombat(int id) throws JeppeException {
         return wf.getWombat(id);
     }
 

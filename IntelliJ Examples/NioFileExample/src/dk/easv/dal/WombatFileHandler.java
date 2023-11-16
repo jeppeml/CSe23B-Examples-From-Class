@@ -32,11 +32,13 @@ public class WombatFileHandler {
             else
                 wombatsChanged.add(getStringFromWombat(w));
         }
+
         try {
             Files.write(Paths.get(filename), wombatsChanged, TRUNCATE_EXISTING);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
     public void deleteWombat(int id){
         List<Wombat> wombats = getAllWombats();
@@ -88,7 +90,13 @@ public class WombatFileHandler {
         String[] fields = s.split(";");
         int id = Integer.parseInt(fields[0]);
         String name = fields[1];
-        double weight = Double.parseDouble(fields[2]);
+        double weight;
+        try{
+            weight = Double.parseDouble(fields[2]);}
+        catch (NumberFormatException nfe){
+            weight = -1;
+            System.out.println("Problems parsing input: Weight");
+        }
         Wombat w = new Wombat(id, name, weight);
         return w;
     }
