@@ -1,5 +1,6 @@
 package dk.easv.dal;
 
+import dk.easv.JeppeException;
 import dk.easv.be.Wombat;
 
 import java.io.IOException;
@@ -69,12 +70,14 @@ public class WombatFileHandler {
         return wombats;
     }
 
-    public void addWombat(Wombat w){
+    public void addWombat(Wombat w) throws JeppeException {
+
         try {
             Files.write(Paths.get(filename), (getStringFromWombat(w)+"\n").getBytes(), APPEND);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new JeppeException("Could not write to the file");
         }
+
     }
     private String getStringFromWombat(Wombat w){
         String stringWombat = "";

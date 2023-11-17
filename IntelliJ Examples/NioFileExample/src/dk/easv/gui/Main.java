@@ -1,5 +1,6 @@
 package dk.easv.gui;
 
+import dk.easv.JeppeException;
 import dk.easv.be.Wombat;
 import dk.easv.bll.BLLManager;
 
@@ -22,7 +23,11 @@ public class Main {
         //List<Wombat> wombats = wf.getAllWombats();
 
         bllmgr.updateWombat(new Wombat(666, "Henrik VERY 1st", 42));
-        bllmgr.getWombat(1);
+        try {
+            bllmgr.getWombat(1);
+        } catch (JeppeException e) {
+            System.out.println(e.getMessage());
+        }
 /*
         System.out.println("amount of wombats: " + wombats.size());
         for(Wombat w : wombats){
