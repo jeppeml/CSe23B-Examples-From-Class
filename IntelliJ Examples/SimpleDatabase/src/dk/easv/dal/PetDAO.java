@@ -100,7 +100,7 @@ public class PetDAO implements IPetDAO{
 
         try(Connection con = cm.getConnection())
         {
-            String sql = "SELECT * FROM Petts WHERE ownerId=?";
+            String sql = "SELECT * FROM Pets WHERE ownerId=?";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, ownerId);
             ResultSet rs = pstmt.executeQuery();
