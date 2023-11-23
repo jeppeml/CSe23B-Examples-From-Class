@@ -1,9 +1,13 @@
 package dk.easv.be;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
     private int id=-1;
     private String name;
     private String email;
+    private final List<Pet> pets = new ArrayList<>();
 
     public Person(String name, String email) {
         this.name = name;
@@ -20,6 +24,10 @@ public class Person {
         this.id = id;
         this.name = name;
         this.email = null;
+    }
+
+    public List<Pet> getPets(){
+        return pets;
     }
 
     public int getId() {

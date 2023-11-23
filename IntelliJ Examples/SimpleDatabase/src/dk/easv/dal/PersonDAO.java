@@ -1,26 +1,18 @@
 package dk.easv.dal;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import dk.easv.be.Person;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonManager implements IPersonManager {
-    private final SQLServerDataSource ds;
-    public PersonManager() {
-        ds = new SQLServerDataSource();
-        ds.setDatabaseName("CSe23B_31_School");
-        ds.setUser("CSe2023b_e_31");
-        ds.setPassword("CSe2023bE31#23");
-        ds.setServerName("EASV-DB4");
-        ds.setTrustServerCertificate(true);
-    }
+public class PersonDAO implements IPersonDAO {
+    private final ConnectionManager cm = new ConnectionManager();
+
 
     @Override
     public Person getPerson(int id) {
-        try(Connection con = ds.getConnection())
+        try(Connection con = cm.getConnection())
         {
             String sql = "SELECT * FROM Persons WHERE id=?";
             PreparedStatement pstmt = con.prepareStatement(sql);
@@ -42,7 +34,7 @@ public class PersonManager implements IPersonManager {
 
     @Override
     public void deletePerson(int id) {
-        try(Connection con = ds.getConnection())
+        try(Connection con = cm.getConnection())
         {
             String sql = "DELETE FROM persons WHERE id=?";
             PreparedStatement pstmt = con.prepareStatement(sql);
@@ -55,7 +47,7 @@ public class PersonManager implements IPersonManager {
 
     @Override
     public void updatePerson(Person p) {
-        try(Connection con = ds.getConnection())
+        try(Connection con = cm.getConnection())
         {
             String sql = "UPDATE persons SET name=?, email=? WHERE id=?";
             PreparedStatement pstmt = con.prepareStatement(sql);
@@ -70,7 +62,7 @@ public class PersonManager implements IPersonManager {
 
     @Override
     public void createPerson(Person p) {
-        try(Connection con = ds.getConnection())
+        try(Connection con = cm.getConnection())
         {
             String sql = "INSERT INTO persons(name, email) VALUES (?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
@@ -88,7 +80,7 @@ public class PersonManager implements IPersonManager {
 
         List<Person> persons = new ArrayList<>();
 
-        try(Connection con = ds.getConnection())
+        try(Connection con = cm.getConnection())
         {
             String sql = "SELECT * FROM Persons";
             Statement stmt = con.createStatement();

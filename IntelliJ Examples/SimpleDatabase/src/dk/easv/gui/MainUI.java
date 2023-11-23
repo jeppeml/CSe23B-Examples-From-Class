@@ -1,16 +1,39 @@
 package dk.easv.gui;
 
+import dk.easv.BLLManager;
+import dk.easv.PetShopException;
 import dk.easv.be.Person;
-import dk.easv.dal.IPersonManager;
-import dk.easv.dal.PersonManager;
+import dk.easv.be.Pet;
+import dk.easv.dal.IPersonDAO;
+import dk.easv.dal.IPetDAO;
+import dk.easv.dal.PersonDAO;
+import dk.easv.dal.PetDAO;
 
 public class MainUI {
     public void run(){
-        IPersonManager mgr = new PersonManager();
+
+        IPersonDAO mgr = new PersonDAO();
+        IPetDAO petDAO = new PetDAO();
 
         for(Person p: mgr.getAllPersons()){
             System.out.println("Person: " + p);
         }
+        try {
+            for(Pet p: petDAO.getPetsFromOwner(3)){
+                System.out.println("Pet: " + p);
+            }
+        } catch (PetShopException e) {
+            System.err.println("You have a problem: " + e.getMessage());
+        }
+
+        BLLManager bll = new BLLManager();
+
+        try {
+            bll.createPerson(new Person("Jeppe", "invalidmail"));
+        } catch (PetShopException e) {
+            System.err.println("There is a problem: " +  e.getMessage());
+        }
+
 
         //Person per = new Person(5,"Henrik the nice guy", "hk3st@easv.dk");
         //mgr.createPerson(per);
