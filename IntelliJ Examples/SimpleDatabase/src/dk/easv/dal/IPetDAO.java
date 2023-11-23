@@ -1,6 +1,6 @@
 package dk.easv.dal;
 
-import dk.easv.PetShopException;
+import dk.easv.exceptions.PetShopException;
 import dk.easv.be.Pet;
 import java.util.List;
 

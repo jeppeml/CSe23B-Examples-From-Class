@@ -1,4 +1,4 @@
-package dk.easv;
+package dk.easv.exceptions;
 
 public class PetShopException extends Exception{
     public PetShopException() {

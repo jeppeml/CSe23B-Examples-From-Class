@@ -1,6 +1,6 @@
 package dk.easv.dal;
 
-import dk.easv.PetShopException;
+import dk.easv.exceptions.PetShopException;
 import dk.easv.be.Pet;
 
 import java.sql.*;
@@ -100,7 +100,7 @@ public class PetDAO implements IPetDAO{
 
         try(Connection con = cm.getConnection())
         {
-            String sql = "SELECT * FROM Pets WHERE ownerId=?";
+            String sql = "SELECT * FROM Petts WHERE ownerId=?";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, ownerId);
             ResultSet rs = pstmt.executeQuery();

@@ -1,7 +1,7 @@
 package dk.easv.gui;
 
-import dk.easv.BLLManager;
-import dk.easv.PetShopException;
+import dk.easv.bll.BLLManager;
+import dk.easv.exceptions.PetShopException;
 import dk.easv.be.Person;
 import dk.easv.be.Pet;
 import dk.easv.dal.IPersonDAO;
