@@ -1,0 +1,11 @@
+.top{
+	-fx-background-color: black;
+}
+
+.headline{
+	-fx-font-size: 32;
+}
+
+Label{
+	-fx-text-fill: lightgray;
+}
